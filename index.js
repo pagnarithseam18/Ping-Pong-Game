@@ -15,9 +15,8 @@ const pingpong = (schedules) => {
               return a[1] - b[1]
           return a[0] - b[0]
       })
-      var table = []
       var sessions = [0, 0]
-      var filler1, filler2 = []
+      var filler1, filler2, table = []
   
       for (let time = 9; time < 18; time++)
       {
