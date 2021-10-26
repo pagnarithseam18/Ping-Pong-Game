@@ -1,10 +1,11 @@
+//Input validation
 const checkValidity = (schedules) => {
     return schedules.every((element) => {
       if (!Array.isArray(element) || element[0] > element[1] || element[0] < 9 || element[0] > 18 || element[1] < 9 || element[1] > 18)
         return false
       return true
     })
-  }
+}
 
 const pingpong = (schedules) => {
     if (Array.isArray(schedules) && checkValidity(schedules))
@@ -22,10 +23,13 @@ const pingpong = (schedules) => {
       {
         filler1 = schedules
         filler2 = table
+        //Removing current player(s) with session ending
         filler2.forEach((element) => {
             if (element[1] <= time)
                 table = table.filter((e) => e != element)
         })
+
+        //Adding newer player(s) with session starting
         filler1.forEach((element) => {
             if(element[0] > time)
                 return
